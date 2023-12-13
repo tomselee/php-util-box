@@ -32,5 +32,5 @@
     "scripts": {
         "fix": "@php ./vendor/friendsofphp/php-cs-fixer/php-cs-fixer fix --config=./src/PHPCS/.php-cs-fixer.php"
     },
-    "version": "1.0.0"
+    "version": "1.0.3"
 }
