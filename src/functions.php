@@ -78,7 +78,7 @@ if (!function_exists('read_csv_file')) {
     {
         $handler = new SplFileObject($filePath, 'r');
         $handler->setFlags(
-            SplFileObject::READ_CSV |
+            SplFileObject::READ_CSV   |
             SplFileObject::READ_AHEAD |
             SplFileObject::SKIP_EMPTY |
             SplFileObject::DROP_NEW_LINE
@@ -201,7 +201,7 @@ if (!function_exists('debug_sql')) {
         $queryLog = DB::getQueryLog();
         DB::rollBack();
         DB::disableQueryLog();
-        $res = collect($queryLog)->map(function ($item) use ($withTime) {
+        $res     = collect($queryLog)->map(function ($item) use ($withTime) {
             $str = Str::replaceArray('?', $item['bindings'], $item['query']);
             $str .= $withTime ? ' /*' . $item['time'] . 'ms*/' : '';
 

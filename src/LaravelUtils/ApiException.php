@@ -8,16 +8,16 @@ class ApiException extends Exception
 {
     use Response;
 
-    public $data; //用来装数据
+    public $data; // 用来装数据
 
     /**
-     * 构造返回给前端的api的异常
+     * 构造返回给前端的api的异常.
      *
      * @param string $message
      * @param [type] $data
-     * @param integer $code // 对应api返回json的code
+     * @param int $code // 对应api返回json的code
      */
-    public function __construct($message = '',$code = 600, $data = null)
+    public function __construct($message = '', $code = 600, $data = null)
     {
         parent::__construct($message, $code);
         $this->data = $data;

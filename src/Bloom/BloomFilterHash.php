@@ -27,7 +27,7 @@ abstract class BloomFilterHash
      */
     public function PJWHash($string, $len = null)
     {
-        $bitsInUnsignedInt = 4 * 8; //（unsigned int）（sizeof（unsigned int）* 8）;
+        $bitsInUnsignedInt = 4                   * 8; // （unsigned int）（sizeof（unsigned int）* 8）;
         $threeQuarters     = ($bitsInUnsignedInt * 3) / 4;
         $oneEighth         = $bitsInUnsignedInt       / 8;
         $highBits          = 0xFFFFFFFF << (int) ($bitsInUnsignedInt - $oneEighth);
@@ -35,11 +35,11 @@ abstract class BloomFilterHash
         $test              = 0;
         $len || $len       = strlen($string);
         for ($i = 0; $i < $len; ++$i) {
-            $hash = ($hash << (int) ($oneEighth)) + ord($string[$i]);
+            $hash = ($hash << (int) $oneEighth) + ord($string[$i]);
         }
         $test = $hash & $highBits;
         if (0 != $test) {
-            $hash = (($hash ^ ($test >> (int) ($threeQuarters))) & (~$highBits));
+            $hash = (($hash ^ ($test >> (int) $threeQuarters)) & (~$highBits));
         }
 
         return ($hash % 0xFFFFFFFF) & 0xFFFFFFFF;
@@ -129,8 +129,8 @@ abstract class BloomFilterHash
      */
     public function FNVHash($string, $len = null)
     {
-        $prime       = 16777619; //32位的prime 2^24 + 2^8 + 0x93 = 16777619
-        $hash        = 2166136261; //32位的offset
+        $prime       = 16777619; // 32位的prime 2^24 + 2^8 + 0x93 = 16777619
+        $hash        = 2166136261; // 32位的offset
         $len || $len = strlen($string);
         for ($i = 0; $i < $len; ++$i) {
             $hash = (int) ($hash * $prime) % 0xFFFFFFFF;

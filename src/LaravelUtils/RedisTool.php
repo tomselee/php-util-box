@@ -984,7 +984,7 @@ class RedisTool
      */
     public function sPop(string $key)
     {
-        //return Redis::spop($key);
+        // return Redis::spop($key);
         return Redis::command('spop', (array) $key);
     }
 

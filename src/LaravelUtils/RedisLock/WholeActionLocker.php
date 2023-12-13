@@ -2,10 +2,11 @@
 
 namespace UtilBox\LaravelUtils\RedisLock;
 
-use Illuminate\Redis\Connections\Connection;
 use function UtilBox\RedisLock\app;
-use function UtilBox\RedisLock\config;
 use function UtilBox\RedisLock\tap;
+use function UtilBox\RedisLock\config;
+
+use Illuminate\Redis\Connections\Connection;
 
 /**
  * Class WholeActionLocker.

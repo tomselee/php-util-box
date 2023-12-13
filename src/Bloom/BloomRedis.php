@@ -22,7 +22,7 @@ class BloomRedis extends BloomFilterHash
         $bloomLength  && $this->bloomLength  = $bloomLength;
         $hashFunction && $this->hashFunction = $hashFunction;
         throw_if(!$this->bucket || !$this->hashFunction, new \Exception('须要定义bucket和hashFunction', 1));
-        $this->Redis = redis(); //假如这里你曾经连贯好了
+        $this->Redis = redis(); // 假如这里你曾经连贯好了
     }
 
     /**

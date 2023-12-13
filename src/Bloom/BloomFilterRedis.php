@@ -20,7 +20,7 @@ class BloomFilterRedis extends BloomFilterHash
         if (!$this->bucket || !$this->hashFunction) {
             throw new \Exception('须要定义bucket和hashFunction', 1);
         }
-        $this->Redis = redis(); //假如这里你曾经连贯好了
+        $this->Redis = redis(); // 假如这里你曾经连贯好了
     }
 
     /**
